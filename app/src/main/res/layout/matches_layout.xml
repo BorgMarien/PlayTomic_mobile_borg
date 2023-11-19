@@ -30,16 +30,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="170dp"
-        android:text="zoek"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
-
     <EditText
         android:id="@+id/editTextDate2"
         android:layout_width="wrap_content"
@@ -60,17 +50,6 @@
         android:text="plaats"
         app:layout_constraintEnd_toStartOf="@+id/editTextText2"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="242dp"
-        android:text="gevonden wedstrijden"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
     <TextView
         android:id="@+id/textView24"
@@ -105,12 +84,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="329dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="56dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="260dp"
+        android:text="gevonden wedstrijden"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="277dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="296dp"
         android:text="dummy naam"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,74 +121,30 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
         android:text="dummy address"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="329dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="34dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="7dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="7dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView31"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <ImageView
         android:id="@+id/imageView4"
         android:layout_width="80dp"
         android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:src="@android:drawable/ic_menu_gallery"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        android:src="@android:drawable/ic_menu_gallery"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="30dp"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="324dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="340dp"
         android:text="spelers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
@@ -196,8 +153,8 @@
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="123dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="124dp"
         android:text="dummy date / time "
         app:layout_constraintEnd_toStartOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -206,20 +163,74 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="86dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="176dp"
         android:text="meedoen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-    <Button
-        android:id="@+id/button7"
+    <TextView
+        android:id="@+id/nav_match"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="37dp"
-        android:text="annuleer"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
+        android:text="matches"
+        android:textColor="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <TextView
+        android:id="@+id/nav_veld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="80dp"
+        android:text="velden"
+        app:layout_constraintEnd_toStartOf="@+id/nav_match"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <TextView
+        android:id="@+id/nav_profiel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="72dp"
+        android:text="profiel"
+        app:layout_constraintEnd_toStartOf="@+id/nav_veld"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="4dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
