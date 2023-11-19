@@ -6,6 +6,6 @@ import android.os.Bundle
 class CreateMatch: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // setContentView(R.layout.profile_layout)
+        setContentView(R.layout.creatematch_layout)
     }
 }

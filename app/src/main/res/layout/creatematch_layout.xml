@@ -12,6 +12,7 @@
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:src="@android:drawable/ic_menu_gallery"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
