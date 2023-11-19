@@ -31,17 +31,17 @@ class Velden: Activity() {
 
 
         profiel.setOnClickListener{
-            val intent = Intent(applicationContext, CreateMatch::class.java)
+            val intent = Intent(applicationContext, Profile::class.java)
             startActivity(intent)
         }
 
         velden.setOnClickListener{
-            val intent = Intent(applicationContext, velden::class.java)
+            val intent = Intent(applicationContext, Velden::class.java)
             startActivity(intent)
         }
 
         matchen.setOnClickListener{
-            val intent = Intent(applicationContext, matchen::class.java)
+            val intent = Intent(applicationContext, Matches::class.java)
             startActivity(intent)
         }
     }
