@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+     android:id="@+id/profile2"
+     android:title="profile"
+     android:icon="@drawable/profile"/>
+    <item
+        android:id="@+id/velden"
+        android:title="velden"
+        android:icon="@drawable/field"/>
+    <item
+        android:id="@+id/matches"
+        android:title="match"
+        android:icon="@drawable/match"/>
+</menu>

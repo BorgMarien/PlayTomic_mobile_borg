@@ -30,13 +30,25 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
+
 
         <activity
             android:name=".CreateMatch"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Playtomic_mobile">
+
+        </activity>
+
+        <activity
+            android:name=".Matches"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Playtomic_mobile">
+
 
         </activity>
     </application>

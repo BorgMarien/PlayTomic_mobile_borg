@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/velden">
+
+    <activity
+        android:id="@+id/velden"
+        android:name="com.example.playtomic_mobile.Velden"
+        android:label="Velden" />
+    <activity
+        android:id="@+id/matches"
+        android:name="com.example.playtomic_mobile.Matches"
+        android:label="Matches" />
+    <activity
+        android:id="@+id/profile2"
+        android:name="com.example.playtomic_mobile.Profile"
+        android:label="Profile" />
+</navigation>
