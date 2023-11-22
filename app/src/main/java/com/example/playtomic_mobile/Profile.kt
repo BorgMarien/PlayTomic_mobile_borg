@@ -19,7 +19,7 @@ class Profile : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_layout)
         //persons
-        val ProfileData:Person ;
+        val ProfileData = Person("null","null","null","null","null","null",false);
 
         //values
         val name = findViewById<View>(R.id.name) as TextView
@@ -32,14 +32,34 @@ class Profile : Activity() {
         //firebase
         val db = Firebase.firestore
 
+        //set all values
+        fun setProfielData(){
+            name.text= ProfileData.Firstname + " " + ProfileData.LastName;
+            location.text = ProfileData.HomeLocation;
+            courtPosition.text= ProfileData.CourtPosition;
+            matchType.text= ProfileData.MatchType;
+            PreferedPlayTime.text = ProfileData.PreferedPlayTime;
+            if(ProfileData.IsRightHanded){
+                hand.text = "Right handed"
+            }else{
+                hand.text = "Left handed"
+            }
+        }
         //getdata
         db.collection("Persons")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    //TODO change this so it doenst just take the first one
+                    //TODO change this so it doenst just take the last one
+                    ProfileData.Firstname= document.data.get("FirstName").toString();
+                    ProfileData.LastName= document.data.get("LastName").toString();
+                    ProfileData.HomeLocation= document.data.get("HomePlayAddress").toString();
+                    ProfileData.MatchType= document.data.get("MatchType").toString();
+                    ProfileData.PreferedPlayTime= document.data.get("PreferedPlayTime").toString();
+                    ProfileData.CourtPosition= document.data.get("CourtPosition").toString();
+                    ProfileData.IsRightHanded=document.data.get("IsRightHanded").toString().toBoolean();
 
-                    Log.d(TAG, "${document.data}")
+                    setProfielData();
                 }
             }
             .addOnFailureListener { exception ->
@@ -67,5 +87,7 @@ class Profile : Activity() {
             val intent = Intent(applicationContext, Matches::class.java)
             startActivity(intent)
         }
+
     }
+
 }

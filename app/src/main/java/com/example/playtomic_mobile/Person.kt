@@ -6,5 +6,7 @@ data class Person (
     var HomeLocation: String,
     var MatchType: String,
     var PreferedPlayTime:String,
-    var CourtPosition: String
+    var CourtPosition: String,
+    var IsRightHanded:Boolean
+
 )
