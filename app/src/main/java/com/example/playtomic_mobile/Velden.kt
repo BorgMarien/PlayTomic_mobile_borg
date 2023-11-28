@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -24,6 +25,9 @@ class Velden: Activity() {
         val profiel = findViewById<View>(R.id.nav_profiel) as TextView
         val velden = findViewById<View>(R.id.nav_veld) as TextView
         val matchen = findViewById<View>(R.id.nav_match) as TextView
+        val imagenav1 = findViewById<View>(R.id.imagenav1) as ImageView
+        val imagenav2 = findViewById<View>(R.id.imagenav2) as ImageView
+        val imagenav3 = findViewById<View>(R.id.imagenav3) as ImageView
 
         //fields
         val fieldOnename = findViewById<View>(R.id.fieldName1) as TextView
@@ -58,18 +62,11 @@ class Velden: Activity() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                   Fields.add(Field(document.data.get("Address").toString(),document.data.get("Name").toString()))
+                   Fields.add(Field(document.id,document.data.get("Address").toString(),document.data.get("Name").toString()))
                 }
                 setFieldData();
 
             }
-
-
-
-
-
-
-
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
@@ -84,6 +81,29 @@ class Velden: Activity() {
         matchen.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
             startActivity(intent)
+        }
+
+        imagenav1.setOnClickListener{
+            val intent = Intent(applicationContext, CreateMatch::class.java)
+            intent.putExtra("Name", Fields[0].Name)
+            intent.putExtra("address", Fields[0].Address)
+            intent.putExtra("id", Fields[0].id)
+            startActivity(intent)
+        }
+        imagenav2.setOnClickListener{
+            val intent = Intent(applicationContext, CreateMatch::class.java)
+            intent.putExtra("Name", Fields[1].Name)
+            intent.putExtra("address", Fields[1].Address)
+            intent.putExtra("id", Fields[1].id)
+            startActivity(intent)
+        }
+        imagenav3.setOnClickListener{
+            val intent = Intent(applicationContext, CreateMatch::class.java)
+            intent.putExtra("Name", Fields[2].Name)
+            intent.putExtra("address", Fields[2].Address)
+            intent.putExtra("id", Fields[2].id)
+            startActivity(intent)
+
         }
     }
 }

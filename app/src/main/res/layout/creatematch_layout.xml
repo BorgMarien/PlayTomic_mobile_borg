@@ -16,15 +16,15 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/fieldname"
+        android:layout_width="370dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="17dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="296dp"
         android:text="Dummy naam"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_marginEnd="52dp"
         android:text="select the date"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDate"
+        app:layout_constraintEnd_toStartOf="@+id/dateInput"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_marginEnd="52dp"
         android:text="select the hour"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTime"
+        app:layout_constraintEnd_toStartOf="@+id/TimeInput"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <TextView
@@ -59,10 +59,10 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/fieldadress" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/dateInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="152dp"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/TimeInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -81,7 +81,7 @@
         android:ems="10"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/dateInput" />
 
     <TextView
         android:id="@+id/textView22"
@@ -90,11 +90,11 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="16dp"
         android:text="number of players"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/PlayerInput"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/PlayerInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -102,38 +102,38 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+        app:layout_constraintTop_toBottomOf="@+id/TimeInput" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/competitiveInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="236dp"
         android:text="competitive match"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/PlayerInput" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/CreateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="152dp"
         android:text="Create match"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/competitiveInput" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/fieldadress"
+        android:layout_width="359dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="300dp"
         android:text="dummy address"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fieldname" />
 
     <TextView
         android:id="@+id/back"

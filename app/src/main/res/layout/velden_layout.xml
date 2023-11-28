@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toStartOf="@+id/nav_veld" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imagenav1"
         android:layout_width="104dp"
         android:layout_height="104dp"
         android:layout_marginTop="104dp"
@@ -63,14 +63,14 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imagenav3"
         android:layout_width="104dp"
         android:layout_height="104dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="36dp"
         android:src="@android:drawable/ic_menu_gallery"
         app:layout_constraintEnd_toStartOf="@+id/fieldName1"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/imagenav2"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -81,7 +81,7 @@
         android:layout_marginTop="72dp"
         android:text="Dummy name "
         android:textAlignment="textEnd"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imagenav1"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -92,7 +92,7 @@
         android:layout_marginTop="92dp"
         android:text="Dummy name "
         android:textAlignment="textEnd"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/imagenav2"
         app:layout_constraintTop_toBottomOf="@+id/fieldAddress" />
 
     <TextView
@@ -103,7 +103,7 @@
         android:layout_marginTop="96dp"
         android:text="Dummy name "
         android:textAlignment="textEnd"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintStart_toEndOf="@+id/imagenav3"
         app:layout_constraintTop_toBottomOf="@+id/fieldAddress2" />
 
     <TextView
@@ -114,7 +114,7 @@
         android:layout_marginTop="4dp"
         android:text="Dummy address"
         android:textAlignment="textEnd"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imagenav1"
         app:layout_constraintTop_toBottomOf="@+id/fieldName1" />
 
     <TextView
@@ -125,7 +125,7 @@
         android:layout_marginTop="156dp"
         android:text="Dummy address"
         android:textAlignment="textEnd"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/imagenav2"
         app:layout_constraintTop_toBottomOf="@+id/fieldName1" />
 
     <TextView
@@ -136,18 +136,18 @@
         android:layout_marginTop="316dp"
         android:text="Dummy address"
         android:textAlignment="textEnd"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintStart_toEndOf="@+id/imagenav3"
         app:layout_constraintTop_toBottomOf="@+id/fieldName1" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imagenav2"
         android:layout_width="104dp"
         android:layout_height="104dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="36dp"
         android:src="@android:drawable/ic_menu_gallery"
         app:layout_constraintEnd_toStartOf="@+id/fieldAddress"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imagenav1"
         tools:srcCompat="@tools:sample/avatars" />
 
 

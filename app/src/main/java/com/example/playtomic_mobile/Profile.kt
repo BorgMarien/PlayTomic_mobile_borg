@@ -53,7 +53,7 @@ class Profile : Activity() {
         val docref = db.collection("Persons").document(LoginID)
         docref.get()
             .addOnSuccessListener { document ->
-                Log.d(TAG, "Found data  ${document.data}")
+
                 if (document != null) {
                     ProfileData.FirstName= document.data?.get("firstName").toString();
                     ProfileData.LastName= document.data?.get("lastName").toString();
