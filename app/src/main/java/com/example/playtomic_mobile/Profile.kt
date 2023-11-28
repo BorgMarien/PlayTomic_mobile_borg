@@ -73,6 +73,8 @@ class Profile : Activity() {
         val profiel = findViewById<View>(R.id.nav_profiel) as TextView
         val velden = findViewById<View>(R.id.nav_veld) as TextView
         val matchen = findViewById<View>(R.id.nav_match) as TextView
+
+
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
             startActivity(intent)

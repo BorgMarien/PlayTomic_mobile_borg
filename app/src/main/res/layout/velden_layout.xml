@@ -20,37 +20,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="275dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="naam"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="16dp"
-        android:text="zoek"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="154dp"
-        android:text="load more "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
-
     <TextView
         android:id="@+id/nav_veld"
         android:layout_width="wrap_content"
@@ -82,13 +51,104 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nav_veld" />
 
-    <ListView
-        android:layout_width="364dp"
-        android:layout_height="328dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="36dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/fieldName1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="36dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/fieldName1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/fieldName1"
+        android:layout_width="261dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="72dp"
+        android:text="Dummy name "
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/fieldName2"
+        android:layout_width="256dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="92dp"
+        android:text="Dummy name "
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/fieldAddress" />
+
+    <TextView
+        android:id="@+id/fieldName3"
+        android:layout_width="258dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="96dp"
+        android:text="Dummy name "
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/fieldAddress2" />
+
+    <TextView
+        android:id="@+id/fieldAddress"
+        android:layout_width="261dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:text="Dummy address"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/fieldName1" />
+
+    <TextView
+        android:id="@+id/fieldAddress2"
+        android:layout_width="258dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="156dp"
+        android:text="Dummy address"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/fieldName1" />
+
+    <TextView
+        android:id="@+id/fieldAddress3"
+        android:layout_width="256dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="316dp"
+        android:text="Dummy address"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/fieldName1" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="36dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/fieldAddress"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
