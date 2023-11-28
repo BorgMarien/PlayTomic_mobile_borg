@@ -40,8 +40,6 @@ class Velden: Activity() {
 
         //set all values
         fun setFieldData(){
-
-            Log.d(TAG, "DocumentSnapshot added with ID: ${Fields[0]}")
             if (Fields.size > 0){
                 fieldOnename.text= Fields[0].Name
                 FieldOneAddress.text= Fields[0].Address
@@ -52,7 +50,6 @@ class Velden: Activity() {
                 fieldTreename.text= Fields[2].Name
                 FieldTreeAddress.text= Fields[2].Address
             }
-
         }
 
         //getdata by id

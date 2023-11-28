@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
@@ -20,7 +21,7 @@ class Profile : Activity() {
         setContentView(R.layout.profile_layout)
         //persons
         val ProfileData = Person("null","null","null","null","null","null",false);
-        val LoginID= "TlrEo0EmhjmHgpV5Cx8Y"
+        val LoginID= "70rvGuMShC9KAPgToNOf"
 
         //fields
         val name = findViewById<View>(R.id.name) as TextView
@@ -35,8 +36,8 @@ class Profile : Activity() {
 
         //set all values
         fun setProfielData(){
-            name.text= ProfileData.Firstname + " " + ProfileData.LastName;
-            location.text = ProfileData.HomeLocation;
+            name.text= ProfileData.FirstName + " " + ProfileData.LastName;
+            location.text = ProfileData.HomePlayAddress;
             courtPosition.text= ProfileData.CourtPosition;
             matchType.text= ProfileData.MatchType;
             PreferedPlayTime.text = ProfileData.PreferedPlayTime;
@@ -47,19 +48,20 @@ class Profile : Activity() {
             }
         }
 
+
         //getdata by id
         val docref = db.collection("Persons").document(LoginID)
         docref.get()
             .addOnSuccessListener { document ->
+                Log.d(TAG, "Found data  ${document.data}")
                 if (document != null) {
-
-                    ProfileData.Firstname= document.data?.get("FirstName").toString();
-                    ProfileData.LastName= document.data?.get("LastName").toString();
-                    ProfileData.HomeLocation= document.data?.get("HomePlayAddress").toString();
-                    ProfileData.MatchType= document.data?.get("MatchType").toString();
-                    ProfileData.PreferedPlayTime= document.data?.get("PreferedPlayTime").toString();
-                    ProfileData.CourtPosition= document.data?.get("CourtPosition").toString();
-                    ProfileData.IsRightHanded=document.data?.get("IsRightHanded").toString().toBoolean();
+                    ProfileData.FirstName= document.data?.get("firstName").toString();
+                    ProfileData.LastName= document.data?.get("lastName").toString();
+                    ProfileData.HomePlayAddress= document.data?.get("homePlayAddress").toString();
+                    ProfileData.MatchType= document.data?.get("matchType").toString();
+                    ProfileData.PreferedPlayTime= document.data?.get("preferedPlayTime").toString();
+                    ProfileData.CourtPosition= document.data?.get("courtPosition").toString();
+                    ProfileData.IsRightHanded=document.data?.get("isRightHanded").toString().toBoolean();
 
                     setProfielData();
 
@@ -73,7 +75,20 @@ class Profile : Activity() {
         val profiel = findViewById<View>(R.id.nav_profiel) as TextView
         val velden = findViewById<View>(R.id.nav_veld) as TextView
         val matchen = findViewById<View>(R.id.nav_match) as TextView
+        val updateButton = findViewById<View>(R.id.button) as Button
 
+
+        updateButton.setOnClickListener{
+            val intent = Intent(applicationContext, UpdateProfile::class.java)
+            intent.putExtra("FirstName", ProfileData.FirstName)
+            intent.putExtra("LastName", ProfileData.LastName)
+            intent.putExtra("CourtPosition", ProfileData.CourtPosition)
+            intent.putExtra("MatchType", ProfileData.MatchType)
+            intent.putExtra("PlayTime", ProfileData.PreferedPlayTime)
+            intent.putExtra("IsRightHanded", ProfileData.IsRightHanded)
+            intent.putExtra("Address", ProfileData.HomePlayAddress)
+            startActivity(intent)
+        }
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
@@ -91,5 +106,7 @@ class Profile : Activity() {
         }
 
     }
+
+
 
 }
