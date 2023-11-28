@@ -20,8 +20,9 @@ class Profile : Activity() {
         setContentView(R.layout.profile_layout)
         //persons
         val ProfileData = Person("null","null","null","null","null","null",false);
+        val LoginID= "TlrEo0EmhjmHgpV5Cx8Y"
 
-        //values
+        //fields
         val name = findViewById<View>(R.id.name) as TextView
         val location = findViewById<View>(R.id.location) as TextView
         val hand = findViewById<View>(R.id.hand) as TextView
@@ -45,25 +46,24 @@ class Profile : Activity() {
                 hand.text = "Left handed"
             }
         }
-        //getdata
-        db.collection("Persons")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    //TODO change this so it doenst just take the last one
-                    ProfileData.Firstname= document.data.get("FirstName").toString();
-                    ProfileData.LastName= document.data.get("LastName").toString();
-                    ProfileData.HomeLocation= document.data.get("HomePlayAddress").toString();
-                    ProfileData.MatchType= document.data.get("MatchType").toString();
-                    ProfileData.PreferedPlayTime= document.data.get("PreferedPlayTime").toString();
-                    ProfileData.CourtPosition= document.data.get("CourtPosition").toString();
-                    ProfileData.IsRightHanded=document.data.get("IsRightHanded").toString().toBoolean();
+
+        //getdata by id
+        val docref = db.collection("Persons").document(LoginID)
+        docref.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+
+                    ProfileData.Firstname= document.data?.get("FirstName").toString();
+                    ProfileData.LastName= document.data?.get("LastName").toString();
+                    ProfileData.HomeLocation= document.data?.get("HomePlayAddress").toString();
+                    ProfileData.MatchType= document.data?.get("MatchType").toString();
+                    ProfileData.PreferedPlayTime= document.data?.get("PreferedPlayTime").toString();
+                    ProfileData.CourtPosition= document.data?.get("CourtPosition").toString();
+                    ProfileData.IsRightHanded=document.data?.get("IsRightHanded").toString().toBoolean();
 
                     setProfielData();
+
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
             }
 
 

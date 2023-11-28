@@ -41,110 +41,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/navigationTest"
-        android:layout_width="333dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="46dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="292dp"
-        android:text="dummy naam"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationTest" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="186dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="49dp"
-        android:text="dummy address"
-        android:textAlignment="textEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationTest" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="333dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="296dp"
-        android:text="dummy naam"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationTest" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="186dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="56dp"
-        android:text="dummy address"
-        android:textAlignment="textEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationTest" />
-
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="154dp"
         android:text="load more "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
 
     <TextView
         android:id="@+id/nav_veld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="80dp"
+        android:layout_marginBottom="79dp"
         android:text="velden"
         android:textColor="#03A9F4"
-        app:layout_constraintEnd_toStartOf="@+id/nav_match"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nav_match" />
 
     <TextView
         android:id="@+id/nav_match"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
         android:layout_marginEnd="44dp"
+        android:layout_marginBottom="81dp"
         android:text="matches"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/nav_profiel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
         android:layout_marginEnd="96dp"
+        android:layout_marginBottom="78dp"
         android:text="profiel"
-        app:layout_constraintEnd_toStartOf="@+id/nav_veld"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nav_veld" />
+
+    <ListView
+        android:layout_width="364dp"
+        android:layout_height="328dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
