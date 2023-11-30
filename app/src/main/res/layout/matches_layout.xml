@@ -164,7 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="48dp"
         android:text="match naam"
         app:layout_constraintEnd_toStartOf="@+id/editTextText2"
         app:layout_constraintTop_toTopOf="parent" />
