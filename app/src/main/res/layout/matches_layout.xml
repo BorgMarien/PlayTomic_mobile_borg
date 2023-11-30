@@ -22,7 +22,7 @@
         android:id="@+id/editTextText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="60dp"
         android:ems="10"
         android:inputType="text"
@@ -30,120 +30,99 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="76dp"
-        android:text="datum"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDate2"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="329dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="56dp"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
+        android:layout_width="139dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="4dp"
         android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-    <TextView
-        android:id="@+id/textView29"
+    <Button
+        android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:text="dummy address"
-        android:textAlignment="textEnd"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="160dp"
+        android:text="meedoen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="252dp"
-        android:text="gevonden wedstrijden"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="340dp"
-        android:text="spelers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="80dp"
         android:layout_height="70dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
         android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="80dp"
-        android:text="plaats"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="40dp"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="124dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
         android:text="dummy date / time "
-        app:layout_constraintEnd_toStartOf="@+id/textView29"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="340dp"
+        android:text="spelers"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="80dp"
         android:layout_height="70dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
         android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="12dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:text="dummy address"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="16dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -151,63 +130,84 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="296dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="64dp"
+        android:text="dummy naam"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="304dp"
         android:text="dummy naam"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-    <Button
-        android:id="@+id/button6"
+    <TextView
+        android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="176dp"
-        android:text="meedoen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
-
-    <EditText
-        android:id="@+id/editTextDate2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:ems="10"
-        android:inputType="date"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="256dp"
+        android:text="gevonden wedstrijden"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="84dp"
+        android:text="match naam"
+        app:layout_constraintEnd_toStartOf="@+id/editTextText2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nav_veld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="88dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="84dp"
         android:text="velden"
         app:layout_constraintEnd_toStartOf="@+id/nav_match"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-    <TextView
-        android:id="@+id/nav_match"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="52dp"
-        android:text="matches"
-        android:textColor="#03A9F4"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <TextView
         android:id="@+id/nav_profiel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginTop="103dp"
+        android:layout_marginEnd="100dp"
         android:text="profiel"
         app:layout_constraintEnd_toStartOf="@+id/nav_veld"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/nav_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="103dp"
+        android:layout_marginEnd="40dp"
+        android:text="matches"
+        android:textColor="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/CreateMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="16dp"
+        android:text="Create new match"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

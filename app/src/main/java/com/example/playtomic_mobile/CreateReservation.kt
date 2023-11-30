@@ -32,7 +32,7 @@ class CreateReservation: Activity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         time.adapter = adapter;
 
-        val CompetitiveMatch = findViewById<View>(R.id.competitiveInput) as CheckBox
+
         val createbutton = findViewById<View>(R.id.CreateButton) as Button
 
         val db = Firebase.firestore
@@ -49,7 +49,7 @@ class CreateReservation: Activity() {
 
         createbutton.setOnClickListener{
 
-          val reservation = Reservation(stringdate,time.selectedItem.toString(),field,CompetitiveMatch.isChecked,ArrayList<Person>());
+          val reservation = Reservation(stringdate,time.selectedItem.toString(),field);
           db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)

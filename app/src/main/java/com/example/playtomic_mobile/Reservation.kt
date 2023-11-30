@@ -6,7 +6,5 @@ data class Reservation(
     val Date:String,
     val time:String,
     val Field: Field,
-    val IsCompetitive: Boolean,
-    val Players: ArrayList<Person>
 
 )
