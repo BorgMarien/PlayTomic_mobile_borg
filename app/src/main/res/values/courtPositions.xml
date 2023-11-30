@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="courtspinner">Court Spinner</string>
+    <string-array name="Positions">
+        <item>Left</item>
+        <item>Right</item>
+        <item>Both sides</item>
+    </string-array>
+</resources>

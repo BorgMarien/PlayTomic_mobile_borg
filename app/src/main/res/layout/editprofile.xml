@@ -52,7 +52,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="280dp"
         android:text="Prefered play time"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         android:id="@+id/isRightHandedInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="281dp"
         android:checked="false"
         android:text="Right handed"
@@ -85,17 +85,17 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="316dp"
         android:text="Match types"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CourtInput" />
+        app:layout_constraintTop_toBottomOf="@+id/courtinput" />
 
     <Button
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="96dp"
         android:text="Update"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,40 +123,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/CourtInput"
-        android:layout_width="376dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="19dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
+    <Spinner
+        android:id="@+id/courtinput"
+        android:layout_width="369dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:entries="@array/Positions"/>
 
-    <EditText
+    <Spinner
         android:id="@+id/MatchInput"
-        android:layout_width="379dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
+        android:layout_width="365dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:entries="@array/Matchtypes"/>
+
+    <Spinner
+        android:id="@+id/PlayTimeInput"
+        android:layout_width="365dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="28dp"
+        android:entries="@array/playtime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <EditText
-        android:id="@+id/PlayTimeInput"
-        android:layout_width="373dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="22dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

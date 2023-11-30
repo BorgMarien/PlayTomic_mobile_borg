@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="playtimespinner">playtime Spinner</string>
+    <string-array name="playtime">
+        <item>Morning</item>
+        <item>Noon</item>
+        <item>After noon</item>
+        <item>Evening</item>
+    </string-array>
+</resources>
