@@ -1,11 +1,12 @@
 package com.example.playtomic_mobile
 
-data class Match (
+import java.util.Date
+
+data class Reservation(
     val Date:String,
-    val Time:String,
+    val time:String,
     val Field: Field,
     val IsCompetitive: Boolean,
-    val MaxNumberOfPLayers: Int,
     val Players: ArrayList<Person>
 
 )

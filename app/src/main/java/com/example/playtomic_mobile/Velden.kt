@@ -84,24 +84,24 @@ class Velden: Activity() {
         }
 
         imagenav1.setOnClickListener{
-            val intent = Intent(applicationContext, CreateMatch::class.java)
+            val intent = Intent(applicationContext, CreateReservation::class.java)
+            intent.putExtra("id", Fields[0].id)
             intent.putExtra("Name", Fields[0].Name)
             intent.putExtra("address", Fields[0].Address)
-            intent.putExtra("id", Fields[0].id)
             startActivity(intent)
         }
         imagenav2.setOnClickListener{
-            val intent = Intent(applicationContext, CreateMatch::class.java)
+            val intent = Intent(applicationContext, CreateReservation::class.java)
+           intent.putExtra("id", Fields[1].id)
             intent.putExtra("Name", Fields[1].Name)
-            intent.putExtra("address", Fields[1].Address)
-            intent.putExtra("id", Fields[1].id)
+        intent.putExtra("address", Fields[1].Address)
             startActivity(intent)
         }
         imagenav3.setOnClickListener{
-            val intent = Intent(applicationContext, CreateMatch::class.java)
+            val intent = Intent(applicationContext, CreateReservation::class.java)
+            intent.putExtra("id", Fields[2].id)
             intent.putExtra("Name", Fields[2].Name)
             intent.putExtra("address", Fields[2].Address)
-            intent.putExtra("id", Fields[2].id)
             startActivity(intent)
 
         }

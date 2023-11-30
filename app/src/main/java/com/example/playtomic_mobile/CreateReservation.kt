@@ -4,45 +4,53 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.CalendarView
 import android.widget.CheckBox
-import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
-import androidx.navigation.Navigator
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
-class CreateMatch: Activity() {
+class CreateReservation: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val extras = intent.extras
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.creatematch_layout)
+        setContentView(R.layout.reservefield)
 
 
         //nav
         val backbutton = findViewById<View>(R.id.back) as TextView
 
         //fields
-        val fieldName = findViewById<View>(R.id.fieldname) as TextView
-        fieldName.text= extras?.getString("Name")
-        val fieldAddress = findViewById<View>(R.id.fieldadress) as TextView
-        fieldAddress.text= extras?.getString("address")
+        val date = findViewById<View>(R.id.dateInput) as CalendarView
+        var stringdate = "";
 
-        val dateinput = findViewById<View>(R.id.dateInput) as TextView
-        val timeinput = findViewById<View>(R.id.TimeInput) as TextView
-        val numberofplayersinput = findViewById<View>(R.id.PlayerInput) as TextView
+        val time = findViewById<View>(R.id.time) as Spinner
+        val adapter = ArrayAdapter.createFromResource(this,R.array.available, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        time.adapter = adapter;
+
         val CompetitiveMatch = findViewById<View>(R.id.competitiveInput) as CheckBox
         val createbutton = findViewById<View>(R.id.CreateButton) as Button
 
         val db = Firebase.firestore
         val field= Field(extras?.getString("id").toString(), extras?.getString("Name").toString(),extras?.getString("address").toString())
 
+        //get value
+        date
+            .setOnDateChangeListener(
+                CalendarView.OnDateChangeListener { view, year, month, dayOfMonth ->
+                   stringdate = (dayOfMonth.toString() + "-"
+                            + (month + 1) + "-" + year)
+
+                })
+
         createbutton.setOnClickListener{
 
-          val Match = Match(dateinput.text.toString(),timeinput.text.toString(),field,CompetitiveMatch.isChecked,numberofplayersinput.text.toString().toInt(),
-                ArrayList<Person>()
-            );
-          db.collection("Match").add(Match)
+          val reservation = Reservation(stringdate,time.selectedItem.toString(),field,CompetitiveMatch.isChecked,ArrayList<Person>());
+          db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)
           startActivity(intent)
