@@ -1,6 +1,7 @@
 package com.example.playtomic_mobile
 
 data class Person (
+    var ID:String,
     var FirstName : String ,
     var LastName : String,
     var HomePlayAddress: String,

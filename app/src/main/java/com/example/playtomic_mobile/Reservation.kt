@@ -5,7 +5,8 @@ import java.util.Date
 data class Reservation(
     val Date:String,
     val time:String,
-    val Field: Field,
-    val Player:Person
+    val fieldAdress:String,
+    val fieldName:String,
+    val PlayerID:String
 
 )

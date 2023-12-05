@@ -28,6 +28,7 @@ class Velden: Activity() {
         val imagenav1 = findViewById<View>(R.id.imagenav1) as ImageView
         val imagenav2 = findViewById<View>(R.id.imagenav2) as ImageView
         val imagenav3 = findViewById<View>(R.id.imagenav3) as ImageView
+        val viewReservations = findViewById<View>(R.id.myreservations) as TextView
 
         //fields
         val fieldOnename = findViewById<View>(R.id.fieldName1) as TextView
@@ -56,7 +57,6 @@ class Velden: Activity() {
             }
         }
 
-        //getdata by id
         //getALLdata
         db.collection("Fields")
             .get()
@@ -102,6 +102,12 @@ class Velden: Activity() {
             intent.putExtra("id", Fields[2].id)
             intent.putExtra("Name", Fields[2].Name)
             intent.putExtra("address", Fields[2].Address)
+            startActivity(intent)
+
+        }
+
+        viewReservations.setOnClickListener{
+            val intent = Intent(applicationContext, MyReservations::class.java)
             startActivity(intent)
 
         }

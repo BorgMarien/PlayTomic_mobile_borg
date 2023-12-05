@@ -46,6 +46,13 @@
 
         </activity>
         <activity
+            android:name=".MyReservations"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Playtomic_mobile">
+
+        </activity>
+        <activity
             android:name=".UpdateProfile"
             android:exported="true"
             android:label="@string/app_name"

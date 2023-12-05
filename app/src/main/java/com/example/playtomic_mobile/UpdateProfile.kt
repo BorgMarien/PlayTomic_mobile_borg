@@ -19,7 +19,7 @@ class UpdateProfile:Activity() {
         setContentView(R.layout.editprofile)
 
         val LoginID = "70rvGuMShC9KAPgToNOf"
-        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", false);
+        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false);
 
         //fields
         val FirstName = findViewById<View>(R.id.FirstNameInput) as TextView

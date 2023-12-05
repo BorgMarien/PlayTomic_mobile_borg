@@ -19,7 +19,7 @@ class CreateReservation: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reservefield)
 
-        val ProfileData = Person("null","null","null","null","null","null",false);
+        val ProfileData = Person("null","null","null","null","null","null","null",false);
         val LoginID= "70rvGuMShC9KAPgToNOf"
 
         //nav
@@ -46,6 +46,7 @@ class CreateReservation: Activity() {
             .addOnSuccessListener { document ->
 
                 if (document != null) {
+                    ProfileData.ID= document.id;
                     ProfileData.FirstName= document.data?.get("firstName").toString();
                     ProfileData.LastName= document.data?.get("lastName").toString();
                     ProfileData.HomePlayAddress= document.data?.get("homePlayAddress").toString();
@@ -67,7 +68,7 @@ class CreateReservation: Activity() {
 
         createbutton.setOnClickListener{
 
-          val reservation = Reservation(stringdate,time.selectedItem.toString(),field, ProfileData);
+          val reservation = Reservation(stringdate,time.selectedItem.toString(),field.Address,field.Name, ProfileData.ID);
           db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)
