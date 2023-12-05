@@ -49,6 +49,7 @@ class MyReservations: Activity() {
                 if(Reservations.isNotEmpty()){
                     //string to date
                     //val localDate = LocalDate.parse("01-06-2022", DateTimeFormatter.ofPattern("MM-dd-yyyy"))
+                    Reservations.sortByDescending { it.fieldName }
                     val adapter =  ReservationAdapter(applicationContext, 0 , Reservations);
                     reservationListview.adapter= adapter;
                 }
