@@ -6,5 +6,6 @@ data class Reservation(
     val Date:String,
     val time:String,
     val Field: Field,
+    val Player:Person
 
 )

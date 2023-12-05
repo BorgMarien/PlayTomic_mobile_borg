@@ -19,6 +19,8 @@ class CreateReservation: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reservefield)
 
+        val ProfileData = Person("null","null","null","null","null","null",false);
+        val LoginID= "70rvGuMShC9KAPgToNOf"
 
         //nav
         val backbutton = findViewById<View>(R.id.back) as TextView
@@ -38,6 +40,22 @@ class CreateReservation: Activity() {
         val db = Firebase.firestore
         val field= Field(extras?.getString("id").toString(), extras?.getString("Name").toString(),extras?.getString("address").toString())
 
+        //get person by id
+        val docref = db.collection("Persons").document(LoginID)
+        docref.get()
+            .addOnSuccessListener { document ->
+
+                if (document != null) {
+                    ProfileData.FirstName= document.data?.get("firstName").toString();
+                    ProfileData.LastName= document.data?.get("lastName").toString();
+                    ProfileData.HomePlayAddress= document.data?.get("homePlayAddress").toString();
+                    ProfileData.MatchType= document.data?.get("matchType").toString();
+                    ProfileData.PreferedPlayTime= document.data?.get("preferedPlayTime").toString();
+                    ProfileData.CourtPosition= document.data?.get("courtPosition").toString();
+                    ProfileData.IsRightHanded=document.data?.get("isRightHanded").toString().toBoolean();
+                }
+            }
+
         //get value
         date
             .setOnDateChangeListener(
@@ -49,7 +67,7 @@ class CreateReservation: Activity() {
 
         createbutton.setOnClickListener{
 
-          val reservation = Reservation(stringdate,time.selectedItem.toString(),field);
+          val reservation = Reservation(stringdate,time.selectedItem.toString(),field, ProfileData);
           db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)
@@ -60,6 +78,8 @@ class CreateReservation: Activity() {
             val intent = Intent(applicationContext, Velden::class.java)
             startActivity(intent)
         }
+
+
 
     }
 
