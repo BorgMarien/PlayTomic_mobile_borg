@@ -15,6 +15,8 @@ class Matches: Activity() {
         val profiel = findViewById<View>(R.id.nav_profiel) as TextView
         val velden = findViewById<View>(R.id.nav_veld) as TextView
         val matchen = findViewById<View>(R.id.nav_match) as TextView
+        val GoToCreateMatch = findViewById<View>(R.id.CreateMatch) as TextView
+
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
             startActivity(intent)
@@ -27,6 +29,11 @@ class Matches: Activity() {
 
         matchen.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
+            startActivity(intent)
+        }
+
+        GoToCreateMatch.setOnClickListener{
+            val intent = Intent(applicationContext, CreateMatch::class.java)
             startActivity(intent)
         }
     }

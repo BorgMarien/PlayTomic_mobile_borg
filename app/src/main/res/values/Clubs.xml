@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Clubsspinnner">Clubs spinnner</string>
+    <string-array name="clubs">
+        <item>MortselSport</item>
+        <item>Cantincrode</item>
+        <item>Oase</item>
+    </string-array>
+</resources>
