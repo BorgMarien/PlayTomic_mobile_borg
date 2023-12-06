@@ -7,11 +7,11 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CalendarView
-import android.widget.CheckBox
 import android.widget.Spinner
 import android.widget.TextView
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+import java.util.Arrays
 
 class CreateReservation: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +28,8 @@ class CreateReservation: Activity() {
         //fields
         val date = findViewById<View>(R.id.dateInput) as CalendarView
         var stringdate = "";
+
+        var availableTimes = ArrayList<String>(Arrays.asList(*resources.getStringArray(R.array.available)))
 
         val time = findViewById<View>(R.id.time) as Spinner
         val adapter = ArrayAdapter.createFromResource(this,R.array.available, android.R.layout.simple_spinner_item)
@@ -57,14 +59,44 @@ class CreateReservation: Activity() {
                 }
             }
 
+
+        fun UpdateTimeArray(date:String){
+            availableTimes = ArrayList<String>(Arrays.asList(*resources.getStringArray(R.array.available)))
+          db.collection("Reservation").whereEqualTo("date", date)
+              .get()
+              .addOnSuccessListener { documents ->
+                  for (document in documents) {
+                      if(document.data.get("fieldName").toString() == field.Name){
+                          //deze tijd verwijderen uit array
+                            val index = availableTimes.indexOf(document.data.get("time").toString());
+                          if(index > 0 ){
+                              availableTimes.removeAt(index);
+
+
+
+                          }
+
+
+                      }
+                  }
+              }
+            val adp: ArrayAdapter<String> =
+                ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, availableTimes)
+            time.adapter = adp;
+
+
+        }
+
         //get value
         date
             .setOnDateChangeListener(
                 CalendarView.OnDateChangeListener { view, year, month, dayOfMonth ->
                    stringdate = (dayOfMonth.toString() + "-"
                             + (month + 1) + "-" + year)
+                    UpdateTimeArray(stringdate);
 
                 })
+
 
         createbutton.setOnClickListener{
 
