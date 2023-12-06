@@ -2,6 +2,7 @@ package com.example.playtomic_mobile
 
 import android.app.Activity
 import android.content.Intent
+import android.location.Address
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
@@ -24,6 +25,9 @@ class UpdateProfile:Activity() {
         //fields
         val FirstName = findViewById<View>(R.id.FirstNameInput) as TextView
         FirstName.text = extras?.getString("FirstName");
+
+        val address = findViewById<View>(R.id.addressInput) as TextView
+        address.text = extras?.getString("homePlayAddress");
         val LastName = findViewById<View>(R.id.LastNameInput) as TextView
         LastName.text = extras?.getString("LastName");
 
@@ -73,6 +77,7 @@ class UpdateProfile:Activity() {
         update.setOnClickListener {
 
                 ProfileData.FirstName = FirstName.text.toString();
+                ProfileData.HomePlayAddress = address.text.toString();
                 ProfileData.LastName = LastName.text.toString();
                 ProfileData.CourtPosition = Court.selectedItem.toString();
                 ProfileData.MatchType = Match.selectedItem.toString();

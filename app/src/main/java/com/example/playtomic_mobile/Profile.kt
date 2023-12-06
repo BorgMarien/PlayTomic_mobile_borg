@@ -81,6 +81,7 @@ class Profile : Activity() {
         updateButton.setOnClickListener{
             val intent = Intent(applicationContext, UpdateProfile::class.java)
             intent.putExtra("FirstName", ProfileData.FirstName)
+            intent.putExtra("homePlayAddress", ProfileData.HomePlayAddress)
             intent.putExtra("LastName", ProfileData.LastName)
             intent.putExtra("CourtPosition", ProfileData.CourtPosition)
             intent.putExtra("MatchType", ProfileData.MatchType)
