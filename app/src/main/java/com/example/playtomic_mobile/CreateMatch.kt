@@ -3,6 +3,7 @@ package com.example.playtomic_mobile
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable.Creator
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -16,11 +17,27 @@ import com.google.firebase.firestore.firestore
 class CreateMatch: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val extras = intent.extras
+        val db = Firebase.firestore
         super.onCreate(savedInstanceState)
         setContentView(R.layout.creatematch)
+
         val LoginID = "70rvGuMShC9KAPgToNOf"
-        val PlayerList = ArrayList<String> ();
-        PlayerList.add((LoginID));
+        var Creator = Person("null","null","null","null","null","null","null",false);
+
+
+        //getdata by id
+        val docref = db.collection("Persons").document(LoginID)
+        docref.get()
+            .addOnSuccessListener { document ->
+
+                if (document != null) {
+                    Creator = Person(LoginID,document.data?.get("firstName").toString(),document.data?.get("lastName").toString(),
+                        document.data?.get("homePlayAddress").toString(),document.data?.get("matchType").toString(),document.data?.get("preferedPlayTime").toString(),
+                                document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean());
+                }
+            }
+
+
 
         //nav
         val back = findViewById<View>(R.id.backButton) as TextView
@@ -56,10 +73,10 @@ class CreateMatch: Activity() {
 
 
 
-        val db = Firebase.firestore
+
         val createbutton = findViewById<View>(R.id.CreateMatchButton) as Button
         createbutton.setOnClickListener{
-            val Match = Match(matchname.text.toString(),clubs.selectedItem.toString(),stringdate,time.selectedItem.toString(),MatchType.isChecked,PlayerList);
+            val Match = Match(matchname.text.toString(),clubs.selectedItem.toString(),stringdate,time.selectedItem.toString(),MatchType.isChecked,Creator.FirstName,"","","");
             db.collection("Matches").add(Match)
             val intent = Intent(applicationContext, Matches::class.java)
             startActivity(intent)

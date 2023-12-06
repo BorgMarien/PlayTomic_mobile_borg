@@ -9,7 +9,7 @@
         android:title="velden"
         android:icon="@drawable/field"/>
     <item
-        android:id="@+id/matches"
+        android:id="@+id/matchesList"
         android:title="match"
         android:icon="@drawable/match"/>
 </menu>

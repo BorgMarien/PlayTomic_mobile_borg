@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/player2img"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintStart_toEndOf="@+id/player1img"
+        app:layout_constraintTop_toBottomOf="@+id/matchname"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/player4name"
+        android:layout_width="79dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="18dp"
+        android:text="Player 4"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/player3name"
+        app:layout_constraintTop_toBottomOf="@+id/player4img" />
+
+    <TextView
+        android:id="@+id/player1name"
+        android:layout_width="79dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:text="Player 1"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1img" />
+
+    <ImageView
+        android:id="@+id/player1img"
+        android:layout_width="81dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="9dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchclubname"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/player3name"
+        android:layout_width="79dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="17dp"
+        android:text="Player 3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/player2name"
+        app:layout_constraintTop_toBottomOf="@+id/player3img" />
+
+    <TextView
+        android:id="@+id/matchclubname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:text="dummy club"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/player3img"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="7dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintStart_toEndOf="@+id/player2img"
+        app:layout_constraintTop_toBottomOf="@+id/matchDateTime"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/player2name"
+        android:layout_width="79dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="18dp"
+        android:text="Player 2"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/player1name"
+        app:layout_constraintTop_toBottomOf="@+id/player2img" />
+
+    <ImageView
+        android:id="@+id/player4img"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="25dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchDateTime"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/matchDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="24dp"
+        android:text="dummy date / time "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/matchname"
+        android:layout_width="409dp"
+        android:layout_height="20dp"
+        android:text="dummy naam"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/iscompetitive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="320dp"
+        android:text="competitive"
+        android:textColor="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

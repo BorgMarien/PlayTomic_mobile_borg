@@ -9,7 +9,7 @@
         android:name="com.example.playtomic_mobile.Velden"
         android:label="Velden" />
     <activity
-        android:id="@+id/matches"
+        android:id="@+id/matchesList"
         android:name="com.example.playtomic_mobile.Matches"
         android:label="Matches" />
     <activity
