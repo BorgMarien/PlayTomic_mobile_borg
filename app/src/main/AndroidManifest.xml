@@ -22,9 +22,8 @@
             android:theme="@style/Theme.Playtomic_mobile">
 
         </activity>
-
         <activity
-            android:name=".Velden"
+            android:name=".login"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Playtomic_mobile">
@@ -33,6 +32,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".Velden"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Playtomic_mobile">
+
 
 
         </activity>

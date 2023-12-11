@@ -21,7 +21,7 @@ class UpdateProfile:Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.editprofile)
 
-        val LoginID = "70rvGuMShC9KAPgToNOf"
+        val LoginID = extras?.getString("ID").toString()
 
 
         val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("PassWord").toString());
@@ -74,6 +74,7 @@ class UpdateProfile:Activity() {
         //goback
         cancel.setOnClickListener {
             val intent = Intent(applicationContext, Profile::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
@@ -92,6 +93,7 @@ class UpdateProfile:Activity() {
                db.collection("Persons").document(LoginID).set(ProfileData);
 
             val intent = Intent(applicationContext, Profile::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
 
         }

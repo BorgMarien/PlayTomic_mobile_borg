@@ -20,8 +20,7 @@ class CreateReservation: Activity() {
         setContentView(R.layout.reservefield)
 
         val ProfileData = Person("null","null","null","null","null","null","null",false,"");
-        val LoginID= "70rvGuMShC9KAPgToNOf"
-
+        val LoginID= extras?.getString("ID").toString()
         //nav
         val backbutton = findViewById<View>(R.id.back) as TextView
 
@@ -104,11 +103,14 @@ class CreateReservation: Activity() {
           db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)
+          intent.putExtra("ID", extras?.getString("ID"))
           startActivity(intent)
         }
 
         backbutton.setOnClickListener{
             val intent = Intent(applicationContext, Velden::class.java)
+
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 

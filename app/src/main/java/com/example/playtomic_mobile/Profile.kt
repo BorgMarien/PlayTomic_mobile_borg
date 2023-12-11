@@ -32,9 +32,10 @@ class Profile : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_layout)
+        val extras = intent.extras
         //persons
         val ProfileData = Person("null","null","null","null","null","null","null",false,"");
-        val LoginID= "70rvGuMShC9KAPgToNOf"
+        val LoginID= extras?.getString("ID").toString()
 
         //fields
         val name = findViewById<View>(R.id.name) as TextView
@@ -44,6 +45,7 @@ class Profile : Activity() {
         val matchType = findViewById<View>(R.id.match) as TextView
         val PreferedPlayTime = findViewById<View>(R.id.playtime) as TextView
         val image = findViewById<View>(R.id.porfileImg) as ImageView
+        val logout = findViewById<View>(R.id.logout) as TextView
 
         //firebase
         val db = Firebase.firestore
@@ -105,21 +107,31 @@ class Profile : Activity() {
             intent.putExtra("IsRightHanded", ProfileData.IsRightHanded)
             intent.putExtra("Address", ProfileData.HomePlayAddress)
             intent.putExtra("PassWord", ProfileData.Password)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
+
+            intent.putExtra("ID", extras?.getString("ID"))
+            startActivity(intent)
+        }
+        logout.setOnClickListener{
+            val intent = Intent(applicationContext, login::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         velden.setOnClickListener{
             val intent = Intent(applicationContext, Velden::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         matchen.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 

@@ -25,7 +25,7 @@ class CreateMatch: Activity() {
         setContentView(R.layout.creatematch)
         var availableTimes = ArrayList<String>(Arrays.asList(*resources.getStringArray(R.array.available)))
 
-        val LoginID = "70rvGuMShC9KAPgToNOf"
+        val LoginID = extras?.getString("ID").toString()
         var Creator = Person("null","null","null","null","null","null","null",false,"");
 
 
@@ -47,6 +47,7 @@ class CreateMatch: Activity() {
         val back = findViewById<View>(R.id.backButton) as TextView
         back.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
@@ -121,6 +122,7 @@ class CreateMatch: Activity() {
 
 
             val intent = Intent(applicationContext, Matches::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
     }

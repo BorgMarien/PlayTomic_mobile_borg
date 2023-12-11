@@ -17,8 +17,8 @@ class Matches: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.matches_layout)
         val db = Firebase.firestore
-
-        val LoginID = "70rvGuMShC9KAPgToNOf"
+        val extras = intent.extras
+        val LoginID = extras?.getString("ID").toString()
         var logedInUser = Person("null","null","null","null","null","null","null",false,"");
 
 
@@ -45,21 +45,29 @@ class Matches: Activity() {
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
+
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         velden.setOnClickListener{
             val intent = Intent(applicationContext, Velden::class.java)
+
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         matchen.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
+
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         GoToCreateMatch.setOnClickListener{
             val intent = Intent(applicationContext, CreateMatch::class.java)
+
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 

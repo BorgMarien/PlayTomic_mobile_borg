@@ -16,7 +16,7 @@ class Velden: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.velden_layout)
-
+        val extras = intent.extras
         //get variables
         val Fields = arrayListOf<Field>();
 
@@ -70,16 +70,19 @@ class Velden: Activity() {
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         velden.setOnClickListener{
             val intent = Intent(applicationContext, Velden::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
         matchen.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
@@ -88,6 +91,7 @@ class Velden: Activity() {
             intent.putExtra("id", Fields[0].id)
             intent.putExtra("Name", Fields[0].Name)
             intent.putExtra("address", Fields[0].Address)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
         imagenav2.setOnClickListener{
@@ -95,6 +99,7 @@ class Velden: Activity() {
            intent.putExtra("id", Fields[1].id)
             intent.putExtra("Name", Fields[1].Name)
         intent.putExtra("address", Fields[1].Address)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
         imagenav3.setOnClickListener{
@@ -102,12 +107,14 @@ class Velden: Activity() {
             intent.putExtra("id", Fields[2].id)
             intent.putExtra("Name", Fields[2].Name)
             intent.putExtra("address", Fields[2].Address)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
 
         }
 
         viewReservations.setOnClickListener{
             val intent = Intent(applicationContext, MyReservations::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
 
         }

@@ -16,7 +16,7 @@ class MyReservations: Activity() {
         val extras = intent.extras
         super.onCreate(savedInstanceState)
         setContentView(R.layout.myreservations)
-        val LoginID= "70rvGuMShC9KAPgToNOf"
+        val LoginID= extras?.getString("ID").toString()
 
         //fields
         val reservationListview = findViewById<View>(R.id.reservationsList) as ListView
@@ -26,6 +26,7 @@ class MyReservations: Activity() {
 
         back.setOnClickListener{
             val intent = Intent(applicationContext, Velden::class.java)
+            intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
 
