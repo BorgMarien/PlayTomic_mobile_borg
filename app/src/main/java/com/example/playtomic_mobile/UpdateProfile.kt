@@ -1,9 +1,11 @@
 package com.example.playtomic_mobile
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.location.Address
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -20,8 +22,10 @@ class UpdateProfile:Activity() {
         setContentView(R.layout.editprofile)
 
         val LoginID = "70rvGuMShC9KAPgToNOf"
-        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false);
 
+
+        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("PassWord").toString());
+        Log.d(TAG, "password:   ${extras?.getString("PassWord").toString()}")
         //fields
         val FirstName = findViewById<View>(R.id.FirstNameInput) as TextView
         FirstName.text = extras?.getString("FirstName");
@@ -83,6 +87,7 @@ class UpdateProfile:Activity() {
                 ProfileData.MatchType = Match.selectedItem.toString();
                 ProfileData.PreferedPlayTime = Play.selectedItem.toString();
                 ProfileData.IsRightHanded = IsRightHanded.isChecked;
+                ProfileData.Password = ProfileData.Password;
 
                db.collection("Persons").document(LoginID).set(ProfileData);
 

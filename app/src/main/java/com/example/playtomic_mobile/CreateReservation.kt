@@ -19,7 +19,7 @@ class CreateReservation: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reservefield)
 
-        val ProfileData = Person("null","null","null","null","null","null","null",false);
+        val ProfileData = Person("null","null","null","null","null","null","null",false,"");
         val LoginID= "70rvGuMShC9KAPgToNOf"
 
         //nav

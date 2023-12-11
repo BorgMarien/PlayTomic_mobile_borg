@@ -19,7 +19,7 @@ class Matches: Activity() {
         val db = Firebase.firestore
 
         val LoginID = "70rvGuMShC9KAPgToNOf"
-        var logedInUser = Person("null","null","null","null","null","null","null",false);
+        var logedInUser = Person("null","null","null","null","null","null","null",false,"");
 
 
         //getdata by id
@@ -30,7 +30,7 @@ class Matches: Activity() {
                 if (document != null) {
                     logedInUser = Person(LoginID,document.data?.get("firstName").toString(),document.data?.get("lastName").toString(),
                         document.data?.get("homePlayAddress").toString(),document.data?.get("matchType").toString(),document.data?.get("preferedPlayTime").toString(),
-                        document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean());
+                        document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean(),document.data?.get("passWord").toString());
                 }
             }
 

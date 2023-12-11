@@ -8,6 +8,7 @@ data class Person (
     var MatchType: String,
     var PreferedPlayTime:String,
     var CourtPosition: String,
-    var IsRightHanded:Boolean
+    var IsRightHanded:Boolean,
+    var Password:String
 
 )

@@ -33,7 +33,7 @@ class Profile : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_layout)
         //persons
-        val ProfileData = Person("null","null","null","null","null","null","null",false);
+        val ProfileData = Person("null","null","null","null","null","null","null",false,"");
         val LoginID= "70rvGuMShC9KAPgToNOf"
 
         //fields
@@ -76,6 +76,7 @@ class Profile : Activity() {
                     ProfileData.PreferedPlayTime= document.data?.get("preferedPlayTime").toString();
                     ProfileData.CourtPosition= document.data?.get("courtPosition").toString();
                     ProfileData.IsRightHanded=document.data?.get("isRightHanded").toString().toBoolean();
+                    ProfileData.Password=document.data?.get("passWord").toString();
 
                     setProfielData();
 
@@ -103,6 +104,7 @@ class Profile : Activity() {
             intent.putExtra("PlayTime", ProfileData.PreferedPlayTime)
             intent.putExtra("IsRightHanded", ProfileData.IsRightHanded)
             intent.putExtra("Address", ProfileData.HomePlayAddress)
+            intent.putExtra("PassWord", ProfileData.Password)
             startActivity(intent)
         }
 
