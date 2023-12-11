@@ -3,19 +3,32 @@ package com.example.playtomic_mobile
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.remember
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+import com.google.firebase.storage.storage
+import io.grpc.Context
+import java.io.File
 import java.lang.StringBuilder
 
 class Profile : Activity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_layout)
@@ -30,6 +43,7 @@ class Profile : Activity() {
         val courtPosition = findViewById<View>(R.id.court) as TextView
         val matchType = findViewById<View>(R.id.match) as TextView
         val PreferedPlayTime = findViewById<View>(R.id.playtime) as TextView
+        val image = findViewById<View>(R.id.porfileImg) as ImageView
 
         //firebase
         val db = Firebase.firestore
@@ -78,6 +92,7 @@ class Profile : Activity() {
         val updateButton = findViewById<View>(R.id.button) as Button
 
 
+
         updateButton.setOnClickListener{
             val intent = Intent(applicationContext, UpdateProfile::class.java)
             intent.putExtra("FirstName", ProfileData.FirstName)
@@ -106,8 +121,51 @@ class Profile : Activity() {
             startActivity(intent)
         }
 
+
+
+        image.setOnClickListener{
+            chooseImageGallery()
+        }
+
+
+
+
+
+
+    }
+    private fun chooseImageGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_CHOOSE)
     }
 
+    companion object {
+        private val IMAGE_CHOOSE = 1000;
+        private val PERMISSION_CODE = 1001;
+    }
+    private val REQUEST_CODE = 13
+    private lateinit var filePhoto: File
+    private val FILE_NAME = "photo.jpg"
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when(requestCode){
+            PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    chooseImageGallery()
+                }else{
+                    Toast.makeText(this,"Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            Log.d(TAG, "${data?.data.toString()}")
+            val image = findViewById<View>(R.id.porfileImg) as ImageView
+            image.setImageURI(data?.data)
+       }
 
 }
