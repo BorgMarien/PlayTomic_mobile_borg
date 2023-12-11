@@ -62,6 +62,7 @@ class Profile : Activity() {
             }else{
                 hand.text = "Left handed"
             }
+
         }
 
 
@@ -78,7 +79,7 @@ class Profile : Activity() {
                     ProfileData.PreferedPlayTime= document.data?.get("preferedPlayTime").toString();
                     ProfileData.CourtPosition= document.data?.get("courtPosition").toString();
                     ProfileData.IsRightHanded=document.data?.get("isRightHanded").toString().toBoolean();
-                    ProfileData.Password=document.data?.get("passWord").toString();
+                    ProfileData.Password=document.data?.get("password").toString();
 
                     setProfielData();
 
@@ -106,8 +107,8 @@ class Profile : Activity() {
             intent.putExtra("PlayTime", ProfileData.PreferedPlayTime)
             intent.putExtra("IsRightHanded", ProfileData.IsRightHanded)
             intent.putExtra("Address", ProfileData.HomePlayAddress)
-            intent.putExtra("PassWord", ProfileData.Password)
-            intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("Password", ProfileData.Password)
+            Log.d(TAG, "password:   ${ProfileData.Password}")
             startActivity(intent)
         }
 

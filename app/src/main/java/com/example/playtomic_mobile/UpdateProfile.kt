@@ -24,8 +24,8 @@ class UpdateProfile:Activity() {
         val LoginID = extras?.getString("ID").toString()
 
 
-        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("PassWord").toString());
-        Log.d(TAG, "password:   ${extras?.getString("PassWord").toString()}")
+        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("Password").toString());
+        Log.d(TAG, "password:   ${extras?.getString("Password").toString()}")
         //fields
         val FirstName = findViewById<View>(R.id.FirstNameInput) as TextView
         FirstName.text = extras?.getString("FirstName");
