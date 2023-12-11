@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CalendarView
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import com.google.firebase.Firebase
@@ -34,6 +35,15 @@ class CreateReservation: Activity() {
         val adapter = ArrayAdapter.createFromResource(this,R.array.available, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         time.adapter = adapter;
+
+        val img = findViewById<View>(R.id.image) as ImageView
+        if(extras?.getString("img") == "1"){
+            img.setImageResource(R.drawable.tennisclub1)
+        }else if ( extras?.getString("img") == "2"){
+            img.setImageResource(R.drawable.tennisclub2)
+        }else{
+            img.setImageResource(R.drawable.tennisclub3)
+        }
 
 
         val createbutton = findViewById<View>(R.id.CreateButton) as Button

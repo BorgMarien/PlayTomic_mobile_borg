@@ -92,6 +92,7 @@ class Velden: Activity() {
             intent.putExtra("Name", Fields[0].Name)
             intent.putExtra("address", Fields[0].Address)
             intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("img", "1")
             startActivity(intent)
         }
         imagenav2.setOnClickListener{
@@ -100,6 +101,7 @@ class Velden: Activity() {
             intent.putExtra("Name", Fields[1].Name)
         intent.putExtra("address", Fields[1].Address)
             intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("img", "2")
             startActivity(intent)
         }
         imagenav3.setOnClickListener{
@@ -108,6 +110,7 @@ class Velden: Activity() {
             intent.putExtra("Name", Fields[2].Name)
             intent.putExtra("address", Fields[2].Address)
             intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("img", "3")
             startActivity(intent)
 
         }
