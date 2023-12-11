@@ -100,7 +100,7 @@ class CreateReservation: Activity() {
 
         createbutton.setOnClickListener{
 
-          val reservation = Reservation(stringdate,time.selectedItem.toString(),field.Address,field.Name, ProfileData.ID);
+          val reservation = Reservation(stringdate,time.selectedItem.toString(),field.Name,field.Address, ProfileData.ID);
           db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)

@@ -22,17 +22,27 @@
         android:id="@+id/MatchDate"
         android:layout_width="369dp"
         android:layout_height="294dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MatchName" />
+
+    <Spinner
+        android:id="@+id/MatchTime"
+        android:layout_width="140dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:entries="@array/available"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MatchDate" />
 
     <CheckBox
         android:id="@+id/MatchType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="24dp"
         android:text="Friendly match"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MatchDate" />
@@ -63,31 +73,21 @@
         android:id="@+id/MatchField"
         android:layout_width="274dp"
         android:layout_height="32dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:entries="@array/clubs"
-        app:layout_constraintTop_toBottomOf="@+id/MatchTime" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MatchName" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:text="Club name:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MatchType" />
-
-    <Spinner
-        android:id="@+id/MatchTime"
-        android:layout_width="140dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:entries="@array/available"
-        app:layout_constraintTop_toBottomOf="@+id/MatchDate" />
+        app:layout_constraintTop_toBottomOf="@+id/MatchName" />
 
     <TextView
         android:id="@+id/backButton"
@@ -104,10 +104,10 @@
         android:id="@+id/CreateMatchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="162dp"
         android:text="Create"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MatchField" />
+        app:layout_constraintTop_toBottomOf="@+id/MatchDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

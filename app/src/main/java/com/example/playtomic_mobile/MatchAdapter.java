@@ -43,9 +43,9 @@ public class MatchAdapter extends ArrayAdapter<Match> {
 
         TextView comp = (TextView) convertView.findViewById(R.id.iscompetitive);
         if(match.isFriendly()){
-            comp.setText("Competitive");
-        }else{
             comp.setText("");
+        }else{
+            comp.setText("Competitive");
         }
 
 
