@@ -13,4 +13,9 @@ data class Match(
     var player3: String,
     var player4: String,
 
+    var creatorimg: String,
+    var player2img: String,
+    var player3img: String,
+    var player4img: String,
+
     )

@@ -18,7 +18,7 @@ class createUser : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.createperson)
 
-        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("Password").toString());
+        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("Password").toString(),"");
 
         //fields
         //fields

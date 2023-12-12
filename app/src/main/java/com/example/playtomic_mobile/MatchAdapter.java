@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.google.protobuf.Any;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -58,7 +60,27 @@ public class MatchAdapter extends ArrayAdapter<Match> {
         TextView player4 = (TextView) convertView.findViewById(R.id.player4name);
         player4.setText(match.getPlayer4());
 
+        ImageView player1img = (ImageView) convertView.findViewById(R.id.player1img);
+        Picasso.get().load(match.getCreatorimg()).into(player1img);
+
+        if(match.getPlayer2img() != ""){
+            ImageView player2img = (ImageView) convertView.findViewById(R.id.player2img);
+            Picasso.get().load(match.getPlayer2img()).into(player2img);
+        }
+
+        if(match.getPlayer3img() != ""){
+            ImageView player3img = (ImageView) convertView.findViewById(R.id.player3img);
+            Picasso.get().load(match.getPlayer3img()).into(player3img);
+        }
+
+        if(match.getPlayer4img() != ""){
+            ImageView player4img = (ImageView) convertView.findViewById(R.id.player4img);
+            Picasso.get().load(match.getPlayer4img()).into(player4img);
+        }
+
 
         return convertView;
     }
+
+
 }

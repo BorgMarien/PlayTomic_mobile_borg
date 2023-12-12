@@ -20,7 +20,7 @@ class CreateReservation: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reservefield)
 
-        val ProfileData = Person("null","null","null","null","null","null","null",false,"");
+        val ProfileData = Person("null","null","null","null","null","null","null",false,"","");
         val LoginID= extras?.getString("ID").toString()
         //nav
         val backbutton = findViewById<View>(R.id.back) as TextView

@@ -4,38 +4,34 @@ import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.remember
-import com.beust.klaxon.JsonArray
-import com.beust.klaxon.JsonObject
-import com.beust.klaxon.Parser
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
-import com.google.firebase.storage.storage
-import io.grpc.Context
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.UploadTask
+import com.squareup.picasso.Picasso
 import java.io.File
-import java.lang.StringBuilder
+import java.util.UUID
+
 
 class Profile : Activity() {
+    var personID = " "
+    val ProfileData = Person("null","null","null","null","null","null","null",false,"","");
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_layout)
         val extras = intent.extras
         //persons
-        val ProfileData = Person("null","null","null","null","null","null","null",false,"");
         val LoginID= extras?.getString("ID").toString()
+        personID = LoginID;
 
         //fields
         val name = findViewById<View>(R.id.name) as TextView
@@ -45,6 +41,10 @@ class Profile : Activity() {
         val matchType = findViewById<View>(R.id.match) as TextView
         val PreferedPlayTime = findViewById<View>(R.id.playtime) as TextView
         val image = findViewById<View>(R.id.porfileImg) as ImageView
+
+        val storageRef = FirebaseStorage.getInstance().reference
+
+
         val logout = findViewById<View>(R.id.logout) as TextView
 
         //firebase
@@ -57,6 +57,9 @@ class Profile : Activity() {
             courtPosition.text= ProfileData.CourtPosition;
             matchType.text= ProfileData.MatchType;
             PreferedPlayTime.text = ProfileData.PreferedPlayTime;
+
+            Picasso.get().load(ProfileData.Image).into(image);
+
             if(ProfileData.IsRightHanded){
                 hand.text = "Right handed"
             }else{
@@ -64,7 +67,6 @@ class Profile : Activity() {
             }
 
         }
-
 
         //getdata by id
         val docref = db.collection("Persons").document(LoginID)
@@ -80,6 +82,7 @@ class Profile : Activity() {
                     ProfileData.CourtPosition= document.data?.get("courtPosition").toString();
                     ProfileData.IsRightHanded=document.data?.get("isRightHanded").toString().toBoolean();
                     ProfileData.Password=document.data?.get("password").toString();
+                    ProfileData.Image=document.data?.get("image").toString();
 
                     setProfielData();
 
@@ -108,7 +111,10 @@ class Profile : Activity() {
             intent.putExtra("IsRightHanded", ProfileData.IsRightHanded)
             intent.putExtra("Address", ProfileData.HomePlayAddress)
             intent.putExtra("Password", ProfileData.Password)
+            intent.putExtra("image", ProfileData.Image)
             intent.putExtra("ID", LoginID)
+            //intent.putExtra("Image", LoginID)
+
             startActivity(intent)
         }
 
@@ -181,6 +187,99 @@ class Profile : Activity() {
             Log.d(TAG, "${data?.data.toString()}")
             val image = findViewById<View>(R.id.porfileImg) as ImageView
             image.setImageURI(data?.data)
-       }
+        Log.d(TAG, "Found data  ${data?.data}")
+        data?.data?.let { uploadImage(it) };
 
+
+    }
+
+
+    private fun uploadImage(imageUri: Uri) {
+        val db = Firebase.firestore
+        // Get a reference to the Firebase Storage
+        val storageRef = FirebaseStorage.getInstance().reference
+
+        // Create a reference to the image file you want to upload
+        val imageRef = storageRef.child("images/" + UUID.randomUUID().toString())
+
+        fun changeImgs(){
+            db.collection("Matches")
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        var tempmatch = Match(document.data?.get("name").toString(),document.data?.get("fieldName").toString(),document.data?.get("date").toString(),
+                            document.data?.get("time").toString(),document.data?.get("friendly").toString().toBoolean(),document.data?.get("creatorName").toString(),
+                            document.data?.get("player2").toString(),document.data?.get("player3").toString(),document.data?.get("player4").toString(),
+                            document.data?.get("creatorimg").toString(),document.data?.get("player2img").toString(),document.data?.get("player3img").toString(),document.data?.get("player4img").toString())
+
+                        if(tempmatch.creatorName == ProfileData.FirstName){
+                            tempmatch.creatorimg = ProfileData.Image;
+                            db.collection("Matches").document(document.id).set(tempmatch);
+
+                        }
+                        if(tempmatch.player2 == ProfileData.FirstName){
+                            tempmatch.player2img = ProfileData.Image;
+                            db.collection("Matches").document(document.id).set(tempmatch);
+                        }
+                        if(tempmatch.player3 == ProfileData.FirstName){
+                            tempmatch.player3img = ProfileData.Image;
+                            db.collection("Matches").document(document.id).set(tempmatch);
+                        }
+                        if(tempmatch.player4 == ProfileData.FirstName){
+                            tempmatch.player4img = ProfileData.Image;
+                            db.collection("Matches").document(document.id).set(tempmatch);
+                        }
+
+                    }
+                }
+        }
+
+        fun changePlayerImg(number:Number){
+            db.collection("Matches").whereEqualTo("player${number}", ProfileData.FirstName)
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+
+                        var tempmatch = Match(document.data?.get("name").toString(),document.data?.get("fieldName").toString(),document.data?.get("date").toString(),
+                            document.data?.get("time").toString(),document.data?.get("friendly").toString().toBoolean(),document.data?.get("creatorName").toString(),
+                            document.data?.get("player2").toString(),document.data?.get("player3").toString(),document.data?.get("player4").toString(),
+                            document.data?.get("creatorimg").toString(),document.data?.get("player2img").toString(),document.data?.get("player3img").toString(),document.data?.get("player4img").toString())
+                        if(number==2){
+                            tempmatch.player2img = ProfileData.Image;
+                        }else if(number==3){
+                            tempmatch.player3img = ProfileData.Image;
+                        }else if(number==4){
+                            tempmatch.player4img = ProfileData.Image;
+                        }
+
+
+                    }
+                }
+        }
+
+        // Upload the file to Firebase Storage
+        imageRef.putFile(imageUri)
+            .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
+                // Image uploaded successfully
+                // Get the download URL of the uploaded image
+                imageRef.downloadUrl
+                    .addOnSuccessListener { uri: Uri ->
+                        //firebase
+
+                        // Save the download URL to the Realtime Database or perform any other desired action
+                        ProfileData.Image = uri.toString();
+
+                        db.collection("Persons").document(personID).set(ProfileData);
+                        changeImgs()
+
+
+
+
+                    }
+            }
+            .addOnFailureListener { exception: Exception ->
+                // Handle unsuccessful uploads
+                Log.e("TAG", "Error uploading image: " + exception.message)
+            }
+    }
 }

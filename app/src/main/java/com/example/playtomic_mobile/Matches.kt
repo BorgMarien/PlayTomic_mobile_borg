@@ -19,7 +19,7 @@ class Matches: Activity() {
         val db = Firebase.firestore
         val extras = intent.extras
         val LoginID = extras?.getString("ID").toString()
-        var logedInUser = Person("null","null","null","null","null","null","null",false,"");
+        var logedInUser = Person("null","null","null","null","null","null","null",false,"","");
 
 
         //getdata by id
@@ -30,7 +30,7 @@ class Matches: Activity() {
                 if (document != null) {
                     logedInUser = Person(LoginID,document.data?.get("firstName").toString(),document.data?.get("lastName").toString(),
                         document.data?.get("homePlayAddress").toString(),document.data?.get("matchType").toString(),document.data?.get("preferedPlayTime").toString(),
-                        document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean(),document.data?.get("passWord").toString());
+                        document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean(),document.data?.get("passWord").toString(),document.data?.get("image").toString());
                 }
             }
 
@@ -83,12 +83,12 @@ class Matches: Activity() {
             .addOnSuccessListener { result ->
                 for (document in result) {
                         //matchname.text.toString(),clubs.selectedItem.toString(),stringdate,time.selectedItem.toString(),MatchType.isChecked,PlayerList
-                        val tempMatch = Match(document.data?.get("name").toString(),document.data?.get("fieldName").toString(), document.data?.get("date").toString(), document.data?.get("time").toString(), document.data?.get("friendly").toString().toBoolean(), document.data?.get("creatorName").toString() ,document.data?.get("player2").toString(),document.data?.get("player3").toString() ,document.data?.get("player4").toString());
+                        val tempMatch = Match(document.data?.get("name").toString(),document.data?.get("fieldName").toString(), document.data?.get("date").toString()
+                            , document.data?.get("time").toString(), document.data?.get("friendly").toString().toBoolean(), document.data?.get("creatorName").toString()
+                            ,document.data?.get("player2").toString(),document.data?.get("player3").toString() ,document.data?.get("player4").toString(),
+                            document.data?.get("creatorimg").toString(), document.data?.get("player2img").toString(), document.data?.get("player3img").toString(), document.data?.get("player4img").toString());
                         Matches.add(tempMatch)
                         Ids.add(document.id)
-                        Log.d(ContentValues.TAG, "${document.data}")
-
-
                 }
                 if(Matches.isNotEmpty()){
 
@@ -103,19 +103,25 @@ class Matches: Activity() {
                             //leave if joined
                             if(element.player2 == logedInUser.FirstName){
                                 element.player2 = "";
+                                element.player2img = "";
                             }else if(element.player3 == logedInUser.FirstName){
                                 element.player3 = "";
+                                element.player3img = "";
                             }
                             else if(element.player4 == logedInUser.FirstName){
                                 element.player4 = "";
+                                element.player4img = "";
                             }
                             //join if not joined
                             else if(element.player2 == ""){
                                 element.player2 = logedInUser.FirstName;
+                                element.player2img = logedInUser.Image
                             }else if(element.player3 ==""){
                                 element.player3 = logedInUser.FirstName;
+                                element.player3img = logedInUser.Image
                             }else if(element.player4 ==""){
                                 element.player4 = logedInUser.FirstName;
+                                element.player4img = logedInUser.Image
                             }
                             db.collection("Matches").document(Ids.get(position)).set(element);
                             recreate();

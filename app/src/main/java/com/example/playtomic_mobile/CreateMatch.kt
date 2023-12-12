@@ -26,7 +26,7 @@ class CreateMatch: Activity() {
         var availableTimes = ArrayList<String>(Arrays.asList(*resources.getStringArray(R.array.available)))
 
         val LoginID = extras?.getString("ID").toString()
-        var Creator = Person("null","null","null","null","null","null","null",false,"");
+        var Creator = Person("null","null","null","null","null","null","null",false,"","");
 
 
         //getdata by id
@@ -37,7 +37,7 @@ class CreateMatch: Activity() {
                 if (document != null) {
                     Creator = Person(LoginID,document.data?.get("firstName").toString(),document.data?.get("lastName").toString(),
                         document.data?.get("homePlayAddress").toString(),document.data?.get("matchType").toString(),document.data?.get("preferedPlayTime").toString(),
-                                document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean(),document.data?.get("passWord").toString());
+                                document.data?.get("courtPosition").toString(),document.data?.get("isRightHanded").toString().toBoolean(),document.data?.get("passWord").toString(),document.data?.get("image").toString());
                 }
             }
 
@@ -106,7 +106,7 @@ class CreateMatch: Activity() {
 
         val createbutton = findViewById<View>(R.id.CreateMatchButton) as Button
         createbutton.setOnClickListener{
-            val Match = Match(matchname.text.toString(),clubs.selectedItem.toString(),stringdate,time.selectedItem.toString(),MatchType.isChecked,Creator.FirstName,"","","");
+            val Match = Match(matchname.text.toString(),clubs.selectedItem.toString(),stringdate,time.selectedItem.toString(),MatchType.isChecked,Creator.FirstName,"","","",Creator.Image,"","","");
             db.collection("Matches").add(Match)
 
             //getALLdata

@@ -9,6 +9,7 @@ data class Person (
     var PreferedPlayTime:String,
     var CourtPosition: String,
     var IsRightHanded:Boolean,
-    var Password:String
+    var Password:String,
+    var Image:String
 
 )

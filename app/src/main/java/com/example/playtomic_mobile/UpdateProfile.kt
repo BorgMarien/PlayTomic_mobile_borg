@@ -23,7 +23,7 @@ class UpdateProfile:Activity() {
         val LoginID = extras?.getString("ID").toString()
 
 
-        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("Password").toString());
+        val ProfileData = Person("null", "null", extras?.getString("Address").toString(), "null", "null", "null", "null",false,extras?.getString("Password").toString(),extras?.getString("image").toString());
 
         //fields
         val FirstName = findViewById<View>(R.id.FirstNameInput) as TextView
@@ -88,6 +88,7 @@ class UpdateProfile:Activity() {
                 ProfileData.PreferedPlayTime = Play.selectedItem.toString();
                 ProfileData.IsRightHanded = IsRightHanded.isChecked;
                 ProfileData.Password = ProfileData.Password;
+                ProfileData.Image = ProfileData.Image;
                db.collection("Persons").document(LoginID).set(ProfileData);
             val intent = Intent(applicationContext, Profile::class.java)
             intent.putExtra("ID", extras?.getString("ID"))
