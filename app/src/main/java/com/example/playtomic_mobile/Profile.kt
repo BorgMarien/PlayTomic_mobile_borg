@@ -108,31 +108,31 @@ class Profile : Activity() {
             intent.putExtra("IsRightHanded", ProfileData.IsRightHanded)
             intent.putExtra("Address", ProfileData.HomePlayAddress)
             intent.putExtra("Password", ProfileData.Password)
-            Log.d(TAG, "password:   ${ProfileData.Password}")
+            intent.putExtra("ID", LoginID)
             startActivity(intent)
         }
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
 
-            intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("ID", LoginID)
             startActivity(intent)
         }
         logout.setOnClickListener{
             val intent = Intent(applicationContext, login::class.java)
-            intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("ID", LoginID)
             startActivity(intent)
         }
 
         velden.setOnClickListener{
             val intent = Intent(applicationContext, Velden::class.java)
-            intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("ID", LoginID)
             startActivity(intent)
         }
 
         matchen.setOnClickListener{
             val intent = Intent(applicationContext, Matches::class.java)
-            intent.putExtra("ID", extras?.getString("ID"))
+            intent.putExtra("ID", LoginID)
             startActivity(intent)
         }
 

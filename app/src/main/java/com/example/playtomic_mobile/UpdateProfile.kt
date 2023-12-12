@@ -20,7 +20,6 @@ class UpdateProfile:Activity() {
         val extras = intent.extras
         super.onCreate(savedInstanceState)
         setContentView(R.layout.editprofile)
-
         val LoginID = extras?.getString("ID").toString()
 
 
@@ -89,9 +88,7 @@ class UpdateProfile:Activity() {
                 ProfileData.PreferedPlayTime = Play.selectedItem.toString();
                 ProfileData.IsRightHanded = IsRightHanded.isChecked;
                 ProfileData.Password = ProfileData.Password;
-
                db.collection("Persons").document(LoginID).set(ProfileData);
-
             val intent = Intent(applicationContext, Profile::class.java)
             intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
