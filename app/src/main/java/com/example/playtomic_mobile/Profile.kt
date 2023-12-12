@@ -234,29 +234,6 @@ class Profile : Activity() {
                 }
         }
 
-        fun changePlayerImg(number:Number){
-            db.collection("Matches").whereEqualTo("player${number}", ProfileData.FirstName)
-                .get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-
-                        var tempmatch = Match(document.data?.get("name").toString(),document.data?.get("fieldName").toString(),document.data?.get("date").toString(),
-                            document.data?.get("time").toString(),document.data?.get("friendly").toString().toBoolean(),document.data?.get("creatorName").toString(),
-                            document.data?.get("player2").toString(),document.data?.get("player3").toString(),document.data?.get("player4").toString(),
-                            document.data?.get("creatorimg").toString(),document.data?.get("player2img").toString(),document.data?.get("player3img").toString(),document.data?.get("player4img").toString())
-                        if(number==2){
-                            tempmatch.player2img = ProfileData.Image;
-                        }else if(number==3){
-                            tempmatch.player3img = ProfileData.Image;
-                        }else if(number==4){
-                            tempmatch.player4img = ProfileData.Image;
-                        }
-
-
-                    }
-                }
-        }
-
         // Upload the file to Firebase Storage
         imageRef.putFile(imageUri)
             .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
