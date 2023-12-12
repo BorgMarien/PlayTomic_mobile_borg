@@ -20,6 +20,7 @@ class login : Activity(){
         val passwordInput = findViewById<View>(R.id.loginPassword) as TextView
         val login = findViewById<View>(R.id.login) as Button
         val error = findViewById<View>(R.id.error) as TextView
+        val createAccount = findViewById<View>(R.id.createAccount) as TextView
 
 
         login.setOnClickListener{
@@ -36,6 +37,11 @@ class login : Activity(){
                          }
                     }
                 }
+        }
+
+        createAccount.setOnClickListener{
+            val intent = Intent(applicationContext, createUser::class.java)
+            startActivity(intent)
         }
 
 

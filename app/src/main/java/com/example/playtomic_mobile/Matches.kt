@@ -45,7 +45,6 @@ class Matches: Activity() {
 
         profiel.setOnClickListener{
             val intent = Intent(applicationContext, Profile::class.java)
-
             intent.putExtra("ID", extras?.getString("ID"))
             startActivity(intent)
         }
