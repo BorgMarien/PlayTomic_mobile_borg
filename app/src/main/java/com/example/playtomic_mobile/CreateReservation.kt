@@ -52,6 +52,7 @@ class CreateReservation: Activity() {
 
         val db = Firebase.firestore
         val field= Field(extras?.getString("id").toString(),extras?.getString("address").toString(), extras?.getString("Name").toString())
+        Log.d(TAG, "Field: ${field}")
 
         //get person by id
         val docref = db.collection("Persons").document(LoginID)
@@ -113,7 +114,7 @@ class CreateReservation: Activity() {
 
         createbutton.setOnClickListener{
 
-          val reservation = Reservation(stringdate,time.selectedItem.toString(),field.Name,field.Address, ProfileData.ID);
+          val reservation = Reservation(stringdate,time.selectedItem.toString(),field.Address,field.Name, ProfileData.ID);
           db.collection("Reservation").add(reservation)
 
           val intent = Intent(applicationContext, Velden::class.java)

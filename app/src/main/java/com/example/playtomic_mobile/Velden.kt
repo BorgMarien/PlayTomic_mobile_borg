@@ -97,9 +97,9 @@ class Velden: Activity() {
         }
         imagenav2.setOnClickListener{
             val intent = Intent(applicationContext, CreateReservation::class.java)
-           intent.putExtra("id", Fields[1].id)
+            intent.putExtra("id", Fields[1].id)
             intent.putExtra("Name", Fields[1].Name)
-        intent.putExtra("address", Fields[1].Address)
+            intent.putExtra("address", Fields[1].Address)
             intent.putExtra("ID", extras?.getString("ID"))
             intent.putExtra("img", "2")
             startActivity(intent)
