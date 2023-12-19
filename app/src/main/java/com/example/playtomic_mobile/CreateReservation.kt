@@ -1,8 +1,10 @@
 package com.example.playtomic_mobile
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -49,7 +51,7 @@ class CreateReservation: Activity() {
         val createbutton = findViewById<View>(R.id.CreateButton) as Button
 
         val db = Firebase.firestore
-        val field= Field(extras?.getString("id").toString(), extras?.getString("Name").toString(),extras?.getString("address").toString())
+        val field= Field(extras?.getString("id").toString(),extras?.getString("address").toString(), extras?.getString("Name").toString())
 
         //get person by id
         val docref = db.collection("Persons").document(LoginID)
@@ -70,17 +72,19 @@ class CreateReservation: Activity() {
 
 
         fun UpdateTimeArray(date:String){
+            Log.d(TAG, "triggered")
             availableTimes = ArrayList<String>(Arrays.asList(*resources.getStringArray(R.array.available)))
           db.collection("Reservation").whereEqualTo("date", date)
               .get()
               .addOnSuccessListener { documents ->
                   for (document in documents) {
+                      Log.d(TAG, "${field.Name}")
                       if(document.data.get("fieldName").toString() == field.Name){
                           //deze tijd verwijderen uit array
                             val index = availableTimes.indexOf(document.data.get("time").toString());
+
                           if(index > 0 ){
                               availableTimes.removeAt(index);
-
 
 
                           }
